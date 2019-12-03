@@ -33,21 +33,29 @@ export default class App extends React.Component {
 
   signUpUser = (email,password) =>{
     try {
-      if(this.state.length<8)
+      if(this.state.length<6)
       {
-        alert("Password can't have less than 8 characters!")
+        alert("Password can't have less than 6 characters!")
         return;
       }
       firebase.auth().createUserWithEmailAndPassword(email, password)
     }
     catch(error){
-      console.log(error.topString())
+      console.log(error.toString())
     }
 
   }
 
   LoginUser = (email,password) =>{
-
+    try {
+      
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user){
+        console.log(user)
+      })
+    }
+    catch(error){
+      console.log(error.toString())
+    }
   }
 
   render() {
