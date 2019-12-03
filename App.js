@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import * as firebase from 'firebase';
+import{ Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
 
 // Web app's Firebase configuration
 var firebaseConfig = {
@@ -18,12 +19,21 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+
 export default class App extends React.Component {
   render() {
   return (
-    <View style={styles.container}>
-      
-    </View>
+    <Container style={styles.container}>
+      <Form>
+        <Item>
+          <Label>Email</Label>
+          <Input autoCorrect={false}
+                 autoCapitalize="none"
+          />
+        </Item>
+
+      </Form>
+    </Container>
   );
   }
 }
@@ -32,7 +42,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
 });
